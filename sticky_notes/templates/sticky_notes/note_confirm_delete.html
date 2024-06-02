@@ -1,0 +1,14 @@
+{% extends 'sticky_notes/base.html' %}
+
+{% block title %}Delete Note - {{ note.title }}{% endblock %}
+
+{% block content %}
+  <h2>Are you sure you want to delete this note?</h2>
+  <p>{{ note.title }}</p>
+  <p>{{ note.content }}</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm Delete</button>
+  </form>
+  <a href="{% url 'note_detail' pk=note.pk %}">Cancel</a>
+{% endblock %}

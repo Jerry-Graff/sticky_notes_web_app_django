@@ -1,0 +1,31 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sticky Notes App{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sticky_notes/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{% block header %}Sticky Notes{% endblock %}</h1>
+        <h2><p>Unclutter your brain,</p>
+            <p>one sticky note at a time!</p></h2>
+        <nav>
+            <ul>
+                <li><a href="{% url 'note_list' %}">Home</a></li>
+                <li><a href="{% url 'note_create' %}">Create Note</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Sticky Notes App</p>
+    </footer>
+</body>
+</html>
